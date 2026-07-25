@@ -1,3 +1,8 @@
+## 1.0.5
+
+- Added `example/example.dart` for package pub points compliance.
+- Expanded `analyzer` dependency range (`>=6.0.0 <15.0.0`) to support modern Dart SDKs.
+
 ## 1.0.4
 
 - Added inline documentation comments for pub points optimization.
