@@ -1,3 +1,7 @@
+## 1.0.7
+
+- Fixed ClassDeclaration AST getter compatibility for analyzer 14.x+.
+
 ## 1.0.6
 
 - Fixed AST parser compatibility issues with `analyzer` API getters.
