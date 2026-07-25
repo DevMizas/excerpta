@@ -5,9 +5,6 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 
 /// The main entry point for the Excerpta CLI executable.
-///
-/// Scans the current working directory for Dart and Flutter code, parses ASTs,
-/// and outputs declarations that are never referenced across the codebase.
 void main(List<String> arguments) async {
   final directoryPath = Directory.current.path;
   print('✂️ Excerpta - Analyzing code in: $directoryPath...\n');
@@ -139,7 +136,7 @@ class MobxGetItUsageVisitor extends RecursiveAstVisitor<void> {
 
   @override
   void visitInstanceCreationExpression(InstanceCreationExpression node) {
-    final typeName = node.constructorName.type.name2.lexeme;
+    final typeName = node.constructorName.type.toString();
     onReferenceFound(typeName);
 
     super.visitInstanceCreationExpression(node);

@@ -1,3 +1,8 @@
+## 1.0.6
+
+- Fixed AST parser compatibility issues with `analyzer` API getters.
+- Pinned `analyzer` dependency to `^6.4.0` for static analysis stability.
+
 ## 1.0.5
 
 - Added `example/example.dart` for package pub points compliance.
