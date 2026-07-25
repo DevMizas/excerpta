@@ -1,3 +1,11 @@
+## 1.0.3
+
+- Updated CHANGELOG.md and README documentation.
+
+## 1.0.2
+
+- Updated package documentation and CLI usage details.
+
 ## 1.0.1
 
 - Linked official GitHub repository and issue tracker.
