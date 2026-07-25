@@ -1,6 +1,6 @@
 name: excerpta
 description: A smart dead code detector for Dart and Flutter, with built-in support for MobX, GetIt, and clean architecture idioms.
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/DevMizas/excerpta
 issue_tracker: https://github.com/DevMizas/excerpta/issues
 
