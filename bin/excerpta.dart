@@ -4,6 +4,10 @@ import 'package:analyzer/dart/analysis/results.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 
+/// The main entry point for the Excerpta CLI executable.
+///
+/// Scans the current working directory for Dart and Flutter code, parses ASTs,
+/// and outputs declarations that are never referenced across the codebase.
 void main(List<String> arguments) async {
   final directoryPath = Directory.current.path;
   print('✂️ Excerpta - Analyzing code in: $directoryPath...\n');
@@ -61,6 +65,8 @@ void main(List<String> arguments) async {
   }
 }
 
+/// Checks whether a given symbol [name] is a framework lifecycle method
+/// or a MobX generated artifact that should be ignored.
 bool _isFlutterOrMobxException(String name) {
   const exceptions = {
     'main',
@@ -73,17 +79,31 @@ bool _isFlutterOrMobxException(String name) {
   return exceptions.contains(name) || name.startsWith(r'_$');
 }
 
+/// Represents a declared code element found during AST analysis.
 class DeclaredElement {
+  /// The name of the declared class, function, or symbol.
   final String name;
+
+  /// The file path where this declaration was found.
   final String path;
+
+  /// Creates a new [DeclaredElement] with its [name] and [path].
   DeclaredElement(this.name, this.path);
 }
 
+/// An AST visitor that identifies declarations and references,
+/// with native support for MobX store names and GetIt generics.
 class MobxGetItUsageVisitor extends RecursiveAstVisitor<void> {
+  /// The path of the file being visited.
   final String filePath;
+
+  /// Callback triggered when a declaration (e.g., class) is identified.
   final void Function(String name, String path) onDeclarationFound;
+
+  /// Callback triggered when a reference/usage of a symbol is identified.
   final void Function(String name) onReferenceFound;
 
+  /// Creates a [MobxGetItUsageVisitor] with callbacks for found declarations and references.
   MobxGetItUsageVisitor({
     required this.filePath,
     required this.onDeclarationFound,

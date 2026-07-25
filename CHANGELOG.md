@@ -1,3 +1,9 @@
+## 1.0.4
+
+- Added inline documentation comments for pub points optimization.
+- Relaxed dependency constraints to support modern Dart SDKs.
+- Updated README and CHANGELOG details.
+
 ## 1.0.3
 
 - Updated CHANGELOG.md and README documentation.
