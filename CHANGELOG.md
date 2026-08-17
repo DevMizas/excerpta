@@ -1,3 +1,8 @@
+## 1.0.9
+
+- Fixed `ClassDeclaration` AST name extraction across multiple `analyzer` API versions.
+- Ensured zero static analysis errors on pub.dev package scoring bot.
+
 ## 1.0.8
 
 - Fixed runtime `NoSuchMethodError` by replacing dynamic property access with `ClassDeclaration.name.lexeme`.

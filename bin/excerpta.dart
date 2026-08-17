@@ -109,7 +109,9 @@ class MobxGetItUsageVisitor extends RecursiveAstVisitor<void> {
 
   @override
   void visitClassDeclaration(ClassDeclaration node) {
-    final className = node.name.lexeme;
+    final dynamic dynamicNode = node;
+    final dynamic nameNode = dynamicNode.name2 ?? dynamicNode.name;
+    final String className = nameNode is String ? nameNode : nameNode.lexeme;
 
     if (className.startsWith('_') && className.endsWith('Base')) {
       final realClassName = className.substring(1, className.length - 4);
