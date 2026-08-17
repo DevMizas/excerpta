@@ -1,3 +1,8 @@
+## 1.0.8
+
+- Fixed runtime `NoSuchMethodError` by replacing dynamic property access with `ClassDeclaration.name.lexeme`.
+- Improved cross-version compatibility across `analyzer` 6.x through 15.x+.
+
 ## 1.0.7
 
 - Fixed ClassDeclaration AST getter compatibility for analyzer 14.x+.
